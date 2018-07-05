@@ -3,6 +3,9 @@
 import MySQLdb as dbapi
 import sys
 import csv
+import time
+
+timestr = time.strftime("%Y%m%d")
 
 QUERY='SELECT * FROM mydb.people;'
 db=dbapi.connect(host='localhost',user='root',passwd='password')
