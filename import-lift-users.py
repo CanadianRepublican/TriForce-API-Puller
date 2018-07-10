@@ -117,109 +117,109 @@ for x in range(1, int(jsondata['pages'])+1):
     print(jsondatab['hits'][y])
 
     if jsondatab['hits'][y].get('role'):
-      role = '"'+str(jsondatab['hits'][y]['role']).encode("utf-8")+'"'
+      role = '"'+str(jsondatab['hits'][y]['role']).encode("utf-8", "ignore")+'"'
       print
       print str(role)
       print
 
     if jsondatab['hits'][y].get('knownConditions'):
-      knownConditions = '"'+str(jsondatab['hits'][y]['knownConditions']).encode("utf-8")+'"'
+      knownConditions = '"'+str(jsondatab['hits'][y]['knownConditions']).encode("utf-8", "ignore")+'"'
       print
       print str(knownConditions)
       print
 
     if jsondatab['hits'][y].get('cannabisExperience'):
-      cannabisExperience = '"'+str(jsondatab['hits'][y]['cannabisExperience']).encode("utf-8")+'"'
+      cannabisExperience = '"'+str(jsondatab['hits'][y]['cannabisExperience']).encode("utf-8", "ignore")+'"'
       print
       print str(cannabisExperience)
       print
 
     if jsondatab['hits'][y].get('city'):
-      city = '"'+jsondatab['hits'][y]['city'].encode("utf-8")+'"'
+      city = '"'+jsondatab['hits'][y]['city'].encode("utf-8", "ignore")+'"'
       print
       print str(city)
       print
 
     if jsondatab['hits'][y].get('province'):
-      province = '"'+jsondatab['hits'][y]['province'].encode("utf-8")+'"'
+      province = '"'+jsondatab['hits'][y]['province'].encode("utf-8", "ignore")+'"'
       print
       print str(province)
       print
 
     if jsondatab['hits'][y].get('fullName'):
-      fullName = '"'+jsondatab['hits'][y]['fullName'].encode("utf-8")+'"'
+      fullName = '"'+jsondatab['hits'][y]['fullName'].encode("utf-8", "ignore")+'"'
       print
       print str(fullName)
       print
 
     if jsondatab['hits'][y].get('achievements'):
-      achievements = '"'+str(jsondatab['hits'][y]['achievements']).encode("utf-8")+'"'
+      achievements = '"'+str(jsondatab['hits'][y]['achievements']).encode("utf-8", "ignore")+'"'
       print
       print str(achievements)
       print
 
     if jsondatab['hits'][y].get('fullLocation'):
-      fullLocation = '"'+jsondatab['hits'][y]['fullLocation'].encode("utf-8")+'"'
+      fullLocation = '"'+jsondatab['hits'][y]['fullLocation'].encode("utf-8", "ignore")+'"'
       print
       print str(fullLocation)
       print
 
     if jsondatab['hits'][y].get('address'):
-      address = '"'+jsondatab['hits'][y]['address'].encode("utf-8")+'"'
+      address = '"'+jsondatab['hits'][y]['address'].encode("utf-8", "ignore")+'"'
       print
       print str(address)
       print
 
     if jsondatab['hits'][y].get('twitter'):
-      twitter = jsondatab['hits'][y]['twitter'].encode("utf-8")
+      twitter = "'"+jsondatab['hits'][y]['twitter'].encode("utf-8", "ignore")+"'"
       print
       print str(twitter)
       print
 
     if jsondatab['hits'][y].get('facebook'):
-      facebook = jsondatab['hits'][y]['facebook'].encode("utf-8")
+      facebook = "'"+jsondatab['hits'][y]['facebook'].encode("utf-8", "ignore")+"'"
       print
       print str(facebook)
       print
 
     if jsondatab['hits'][y].get('bio'):
-      bio = '"'+jsondatab['hits'][y]['bio'].encode("utf-8")+'"'
+      bio = '"'+jsondatab['hits'][y]['bio'].encode("utf-8", "ignore")+'"'
       print
       print str(bio)
       print
 
     if jsondatab['hits'][y].get('username'):
-      username = jsondatab['hits'][y]['username'].encode("utf-8")
+      username = "'"+jsondatab['hits'][y]['username'].encode("utf-8", "ignore")+"'"
       print
       print str(username)
       print
 
     if jsondatab['hits'][y].get('postalCode'):
-      postalCode = jsondatab['hits'][y]['postalCode'].encode("utf-8")
+      postalCode = "'"+jsondatab['hits'][y]['postalCode'].encode("utf-8", "ignore")+"'"
       print
       print str(postalCode)
       print
 
     if jsondatab['hits'][y].get('gender'):
-      gender = jsondatab['hits'][y]['gender'].encode("utf-8")
+      gender = "'"+jsondatab['hits'][y]['gender'].encode("utf-8", "ignore")+"'"
       print
       print str(gender)
       print
 
     if jsondatab['hits'][y].get('lastName'):
-      lastName = jsondatab['hits'][y]['lastName'].encode("utf-8")
+      lastName = "'"+jsondatab['hits'][y]['lastName'].encode("utf-8", "ignore")+"'"
       print
       print str(lastName)
       print
 
     if jsondatab['hits'][y].get('firstName'):
-      firstName = jsondatab['hits'][y]['firstName'].encode("utf-8")
+      firstName = "'"+jsondatab['hits'][y]['firstName'].encode("utf-8", "ignore")+"'"
       print
       print str(firstName)
       print
 
     if jsondatab['hits'][y].get('slug'):
-      slug = jsondatab['hits'][y]['slug'].encode("utf-8")
+      slug = "'"+jsondatab['hits'][y]['slug'].encode("utf-8", "ignore")+"'"
       print
       print str(slug)
       print
@@ -393,8 +393,8 @@ for x in range(1, int(jsondata['pages'])+1):
       print(filename)
       testfile.retrieve(jsondatab['hits'][y]['picture'], "/tmp/lift-users/images/pic-"+filename)
 
-    sql1 = "INSERT INTO `lift-users` (lift_id, picture, slug, firstName, lastName, gender, postalCode, username, lift__v, lift_id_2, uploadedPicture, bio, birthday, facebook, twitter, gravatarPicture, achievements, fullLocation, address, city, province, fullName, usingCannabisSince, profileCompletedOn, cannabisExperience, updatedOn, createdOn, verified, suspended, banned, knownConditions, reputation, isAnonymous, helpfulReviewCount, reviewCount, role, joindate, lastOnline, age) values (%s, '%s', %s, %s, %s, '%s', '%s', %s, %s, %s, '%s', %s, %s, '%s', '%s', '%s', %s, %s, %s, %s, %s, %s, %s, %s, '%s', %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) "  % (str (lift_id), str (picture), str (slug), str (firstName),str (lastName), str (gender), str (postalCode), str (username), str (lift__v), str (lift_id_2), str (uploadedPicture), str (bio), str (birthday), str (facebook), str (twitter), str (gravatarPicture), str (achievements), str (fullLocation), str (address), str (city), str (province), str (fullName), str (usingCannabisSince), str (profileCompletedOn), str (cannabisExperience), str (updatedOn), str (createdOn), str (verified), str (suspended), str (banned), str (knownConditions), str (reputation), str (isAnonymous), str (helpfulReviewCount), str (reviewCount), str (role), str (joindate), str (lastOnline), str (age))
-    sql2 = "ON DUPLICATE KEY UPDATE picture='%s', slug='%s', firstName='%s', lastName='%s', gender='%s', postalCode='%s', username='%s', uploadedPicture='%s', bio=%s, birthday=%s, facebook='%s', twitter='%s', gravatarPicture='%s', achievements=%s, fullLocation=%s, address=%s, city=%s, province=%s, fullName='%s', usingCannabisSince=%s, profileCompletedOn=%s, cannabisExperience=%s, updatedOn=%s, verified=%s, suspended=%s, banned=%s, knownConditions=%s, reputation=%s, isAnonymous=%s, helpfulReviewCount=%s, reviewCount=%s, role=%s, lastOnline=%s, age=%s;" % (str(picture), str(slug), str(firstName), str(lastName), str(gender), str(postalCode), str(username), str(uploadedPicture), str(bio), str(birthday), str(facebook), str(twitter), str(gravatarPicture), str(achievements), str(fullLocation), str(address), str(city), str(province), str(fullName), str(usingCannabisSince), str(profileCompletedOn), str(cannabisExperience), str(updatedOn), str(verified), str(suspended), str(banned), str(knownConditions), str(reputation), str(isAnonymous), str(helpfulReviewCount), str(reviewCount), str(role), str(lastOnline), str(age))
+    sql1 = "INSERT INTO `lift-users` (lift_id, picture, slug, firstName, lastName, gender, postalCode, username, lift__v, lift_id_2, uploadedPicture, bio, birthday, facebook, twitter, gravatarPicture, achievements, fullLocation, address, city, province, fullName, usingCannabisSince, profileCompletedOn, cannabisExperience, updatedOn, createdOn, verified, suspended, banned, knownConditions, reputation, isAnonymous, helpfulReviewCount, reviewCount, role, joindate, lastOnline, age) values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) "  % (str (lift_id), str (picture), str (slug), str (firstName),str (lastName), str (gender), str (postalCode), str (username), str (lift__v), str (lift_id_2), str (uploadedPicture), str (bio), str (birthday), str (facebook), str (twitter), str (gravatarPicture), str (achievements), str (fullLocation), str (address), str (city), str (province), str (fullName), str (usingCannabisSince), str (profileCompletedOn), str (cannabisExperience), str (updatedOn), str (createdOn), str (verified), str (suspended), str (banned), str (knownConditions), str (reputation), str (isAnonymous), str (helpfulReviewCount), str (reviewCount), str (role), str (joindate), str (lastOnline), str (age))
+    sql2 = "ON DUPLICATE KEY UPDATE picture=%s, slug=%s, firstName=%s, lastName=%s, gender=%s, postalCode=%s, username=%s, uploadedPicture=%s, bio=%s, birthday=%s, facebook=%s, twitter=%s, gravatarPicture=%s, achievements=%s, fullLocation=%s, address=%s, city=%s, province=%s, fullName=%s, usingCannabisSince=%s, profileCompletedOn=%s, cannabisExperience=%s, updatedOn=%s, verified=%s, suspended=%s, banned=%s, knownConditions=%s, reputation=%s, isAnonymous=%s, helpfulReviewCount=%s, reviewCount=%s, role=%s, lastOnline=%s, age=%s;" % (str(picture), str(slug), str(firstName), str(lastName), str(gender), str(postalCode), str(username), str(uploadedPicture), str(bio), str(birthday), str(facebook), str(twitter), str(gravatarPicture), str(achievements), str(fullLocation), str(address), str(city), str(province), str(fullName), str(usingCannabisSince), str(profileCompletedOn), str(cannabisExperience), str(updatedOn), str(verified), str(suspended), str(banned), str(knownConditions), str(reputation), str(isAnonymous), str(helpfulReviewCount), str(reviewCount), str(role), str(lastOnline), str(age))
     print(sql1+sql2)
     sqlquery = sql1+sql2
     cur.execute(sqlquery)
